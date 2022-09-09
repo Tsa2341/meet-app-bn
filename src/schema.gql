@@ -1,0 +1,47 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type LoginResponse {
+  token: String!
+  user: User!
+}
+
+type Mutation {
+  loginUser(loginInput: LoginInput!): LoginResponse!
+  registerUser(avatar: RegisterInput!): User!
+}
+
+type Query {
+  getAllRoles: [Role!]!
+  getAllUsers: [User!]!
+  getOneUser: User!
+  welcome: String!
+}
+
+input RegisterInput {
+  avatar: Upload!
+}
+
+type Role {
+  id: Int!
+  name: String!
+  user: [User]!
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+type User {
+  avatar: String!
+  email: String!
+  id: String!
+  role: Role!
+  roleId: Int!
+  userName: String!
+}
